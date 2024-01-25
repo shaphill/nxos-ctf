@@ -8,6 +8,7 @@
       cisco.nxos.nxos_overlay_global:
         anycast_gateway_mac: "1234.5678.9000"
 
+  # CONFIGURE ME
     - name: Create & Enable VXLAN VTEP NVE Interface
       cisco.nxos.nxos_interfaces:
         config:
@@ -22,7 +23,7 @@
         source_interface: Loopback1
         shutdown: false
         state: present
-
+  # DON'T TOUCH ME
     - name: Configure VXLAN VTEP NVE Interface L3VNI Mapping(s)
       cisco.nxos.nxos_vxlan_vtep_vni:
         interface: nve1
