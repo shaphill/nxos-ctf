@@ -1,0 +1,21 @@
+---
+- name: Configure VRFs
+  hosts: leafs
+  gather_facts: false
+
+  tasks:
+    - name: Configure L3VNI VRFs
+      cisco.nxos.nxos_vrf:
+        vrf: "{{ item.vrf_name }}"
+        vni: "{{ item.vni_id }}"
+        rd: auto
+        state: present
+      loop: "{{ vrfs }}"
+
+    - name: Configure L3VNI VRF(s) Address-Family
+      cisco.nxos.nxos_vrf_af:
+        vrf: "{{ item.vrf_name }}"
+        afi: ipv4
+        route_target_both_auto_evpn: true
+        state: present
+      loop: "{{ vrfs }}"

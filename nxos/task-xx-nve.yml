@@ -1,0 +1,40 @@
+---
+- name: Configure VXLAN VTEP NVE Interface
+  hosts: leafs
+  gather_facts: false
+
+  tasks:
+    - name: Configure Anycast Gateway MAC Address
+      cisco.nxos.nxos_overlay_global:
+        anycast_gateway_mac: "1234.5678.9000"
+
+    - name: Create & Enable VXLAN VTEP NVE Interface
+      cisco.nxos.nxos_interfaces:
+        config:
+          - name: nve1
+            enabled: true
+        state: merged
+
+    - name: Configure VXLAN VTEP NVE Interface
+      cisco.nxos.nxos_vxlan_vtep:
+        interface: nve1
+        host_reachability: true
+        source_interface: Loopback1
+        shutdown: false
+        state: present
+
+    - name: Configure VXLAN VTEP NVE Interface L3VNI Mapping(s)
+      cisco.nxos.nxos_vxlan_vtep_vni:
+        interface: nve1
+        vni: "{{ item.vni_id }}"
+        assoc_vrf: true
+        state: present
+      loop: "{{ vrfs }}"
+
+    - name: Configure VXLAN VTEP NVE Interface L2VNI Mapping(s)
+      cisco.nxos.nxos_vxlan_vtep_vni:
+        interface: nve1
+        vni: "{{ item.vni_id }}"
+        multicast_group: "{{ item.mcast_grp }}"
+        state: present
+      loop: "{{ networks }}"

@@ -1,0 +1,11 @@
+---
+- name: Enable features
+  hosts: leafs, spines
+  gather_facts: false
+
+- tasks:
+    - name: Enable Features
+      cisco.nxos.nxos_feature:
+        feature: "{{ item }}"
+        state: enabled
+      loop: "{{ features }}"
