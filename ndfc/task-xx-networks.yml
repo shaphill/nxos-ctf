@@ -1,12 +1,11 @@
 ---
-- name: Deploy networks
+- name: Task XX - Deploy networks
   hosts: ndfc1
   gather_facts: false
 
   tasks:
     - name: Add networks and attach to interfaces
       cisco.dcnm.dcnm_network:
-        <<: *ndfc
         config:
           - net_name: "{{ item.name }}"
             vrf_name: "{{ item.vrf }}"

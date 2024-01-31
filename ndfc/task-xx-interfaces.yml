@@ -6,7 +6,6 @@
   tasks:
   - name: Change interface to access mode
     cisco.dcnm.dcnm_interface:
-      <<: *ndfc
       config:
         - name: "{{ interfaces[0].port }}"
           switch:

@@ -1,0 +1,30 @@
+fabric: ctf
+
+vrf:
+  name: v1
+  id: 100
+  vlan: 100
+
+networks:
+  - name: "192_168_1"
+    id: 1000
+    vlan: 1000
+    gateway: 192.168.1.1/24
+    vrf: v1
+    switch: 10.0.223.189
+    port: Ethernet1/3
+  - name: "192_168_2"
+    id: 2000
+    vlan: 2000
+    gateway: 192.168.2.1/24
+    vrf: v1
+    switch: 10.0.223.190
+    port: Ethernet1/3
+
+interfaces:
+  - port: Ethernet1/3
+    vlan: 1000
+    switch: "198.1.1.23"
+  - port: Ethernet1/3
+    vlan: 2000
+    switch: "198.1.1.24"
