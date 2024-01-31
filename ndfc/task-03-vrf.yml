@@ -1,0 +1,13 @@
+---
+- name: Task 03 - Deploy VRF
+  hosts: ndfc1
+  gather_facts: false
+
+  tasks:
+    - name: Add VRF
+      cisco.dcnm.dcnm_vrf:
+        config:
+          - vrf_name: ""
+            vrf_id: ""
+            vlan_id: ""
+            deploy: true

@@ -13,7 +13,7 @@
             vlan_id: "{{ item.vlan }}"
             gw_ip_subnet: "{{ item.gateway }}"
             attach:
-              - ip_address: "{{ item.switch }}"
-                ports: "{{ item.port }}"
+              - ip_address: ""
+                ports: ""
             deploy: true
       loop: "{{ networks }}"

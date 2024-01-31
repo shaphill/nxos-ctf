@@ -1,5 +1,5 @@
 ---
-- name: Task XX - Change interface to access mode
+- name: Task 05 - Change interface to access mode
   hosts: ndfc1
   gather_facts: false
 
@@ -7,7 +7,7 @@
   - name: Change interface to access mode
     cisco.dcnm.dcnm_interface:
       config:
-        - name: "{{ interfaces[0].port }}"
+        - name: "{{ interfaces[0].name }}"
           switch:
             - "{{ interfaces[0].switch }}"
           profile:
@@ -15,10 +15,10 @@
             mode: access
           type: eth
           deploy: true
-        - name: "{{ interfaces[1].port }}"
+        - name: ""
           switch:
-            - "{{ interfaces[1].switch }}"
+            - ""
           profile:
             mode: access
-            access_vlan: "{{ interfaces[1].vlan }}"
+            access_vlan: ""
           type: eth

@@ -11,20 +11,21 @@ networks:
     vlan: 1000
     gateway: 192.168.1.1/24
     vrf: v1
-    switch: 10.0.223.189
-    port: Ethernet1/3
+    address: "198.1.1.23"
+    ports: Ethernet1/3
   - name: "192_168_2"
     id: 2000
     vlan: 2000
     gateway: 192.168.2.1/24
     vrf: v1
-    switch: 10.0.223.190
-    port: Ethernet1/3
+    address: "198.1.1.24"
+    ports: Ethernet1/3
 
+# CHANGE ME
 interfaces:
-  - port: Ethernet1/3
+  - name: Ethernet1/3
     vlan: 1000
     switch: "198.1.1.23"
-  - port: Ethernet1/3
+  - name: Ethernet1/3
     vlan: 2000
     switch: "198.1.1.24"
