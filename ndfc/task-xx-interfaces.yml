@@ -1,0 +1,25 @@
+---
+- name: Task XX - Change interface to access mode
+  hosts: ndfc1
+  gather_facts: false
+
+  tasks:
+  - name: Change interface to access mode
+    cisco.dcnm.dcnm_interface:
+      <<: *ndfc
+      config:
+        - name: "{{ interfaces[0].port }}"
+          switch:
+            - "{{ interfaces[0].switch }}"
+          profile:
+            access_vlan: "{{ interfaces[0].vlan }}"
+            mode: access
+          type: eth
+          deploy: true
+        - name: "{{ interfaces[1].port }}"
+          switch:
+            - "{{ interfaces[1].switch }}"
+          profile:
+            mode: access
+            access_vlan: "{{ interfaces[1].vlan }}"
+          type: eth

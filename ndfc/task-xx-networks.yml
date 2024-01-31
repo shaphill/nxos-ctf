@@ -1,0 +1,20 @@
+---
+- name: Deploy networks
+  hosts: ndfc1
+  gather_facts: false
+
+  tasks:
+    - name: Add networks and attach to interfaces
+      cisco.dcnm.dcnm_network:
+        <<: *ndfc
+        config:
+          - net_name: "{{ item.name }}"
+            vrf_name: "{{ item.vrf }}"
+            net_id: "{{ item.id }}"
+            vlan_id: "{{ item.vlan }}"
+            gw_ip_subnet: "{{ item.gateway }}"
+            attach:
+              - ip_address: "{{ item.switch }}"
+                ports: "{{ item.port }}"
+            deploy: true
+      loop: "{{ networks }}"
