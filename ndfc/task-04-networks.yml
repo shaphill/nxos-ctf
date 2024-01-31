@@ -1,5 +1,5 @@
 ---
-- name: Task XX - Deploy networks
+- name: Task 04 - Deploy networks
   hosts: ndfc1
   gather_facts: false
 
