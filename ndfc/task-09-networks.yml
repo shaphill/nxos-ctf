@@ -1,5 +1,5 @@
 ---
-- name: Task 04 - Deploy networks
+- name: Task 09 - Deploy networks
   hosts: ndfc1
   gather_facts: false
 
@@ -13,7 +13,7 @@
             vlan_id: "{{ item.vlan }}"
             gw_ip_subnet: "{{ item.gateway }}"
             attach:
-              - ip_address: ""
-                ports: ""
+              - ip_address: "CHANGE ME"
+                ports: "CHANGE ME"
             deploy: true
       loop: "{{ networks }}"

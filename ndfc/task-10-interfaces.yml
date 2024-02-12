@@ -1,5 +1,5 @@
 ---
-- name: Task 05 - Change interface to access mode
+- name: Task 10 - Change interface to access mode
   hosts: ndfc1
   gather_facts: false
 
@@ -15,10 +15,10 @@
             mode: access
           type: eth
           deploy: true
-        - name: ""
+        - name: "CHANGE ME"
           switch:
-            - ""
+            - "CHANGE ME"
           profile:
             mode: access
-            access_vlan: ""
+            access_vlan: "CHANGE ME"
           type: eth

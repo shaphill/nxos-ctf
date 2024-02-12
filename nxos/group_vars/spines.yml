@@ -1,6 +1,8 @@
 ---
+# spines.yml
 
-features: # CHANGE ME
+features: 
+  - CHANGE ME
 
 bgp_asn: 65001
 

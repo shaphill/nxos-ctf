@@ -1,25 +1,8 @@
 ---
 # var file for leafs group
 
-features: #CHANGE ME
-
-bgp_asn: 65001
-
-bgp_neighbors:
-  - neighbor: 10.0.0.1
-    remote_as: 65001
-    update_source: Loopback0
-  - neighbor: 10.0.0.2
-    remote_as: 65001
-    update_source: Loopback0
-
-vrfs:
-  - vrf_name: &refvrf_ansiblevrf AnsibleVRF
-    vlan_id: 500
-    vni_id: 50000
-  - vrf_name: &refvrf_demovrf DemoVRF
-    vlan_id: 600
-    vni_id: 60000
+features: 
+  - CHANGE ME
 
 networks:
   - vrf_name: *refvrf_ansiblevrf
@@ -36,3 +19,25 @@ networks:
     addr: 192.168.102.1
     mask: 24
     mcast_grp: 239.1.1.2
+
+vrfs:
+  - vrf_name: &refvrf_ansiblevrf AnsibleVRF
+    vlan_id: 500
+    vni_id: 50000
+  - vrf_name: &refvrf_demovrf DemoVRF
+    vlan_id: 600
+    vni_id: 60000
+
+bgp_asn: 65001
+
+bgp_neighbors:
+  - neighbor: 10.0.0.1
+    remote_as: 65001
+    update_source: Loopback0
+  - neighbor: 10.0.0.2
+    remote_as: 65001
+    update_source: Loopback0
+
+
+
+

@@ -2,7 +2,7 @@
 ndfc:
   hosts:
     ndfc1:
-      ansible_host: CHANGE
+      ansible_host: CHANGE ME
       ansible_connection: ansible.netcommon.httpapi
       ansible_network_os: cisco.dcnm.dcnm
       ansible_httpapi_validate_certs: no

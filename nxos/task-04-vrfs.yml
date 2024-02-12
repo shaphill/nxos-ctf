@@ -1,5 +1,5 @@
 ---
-- name: Configure VRFs
+- name: Task 04 - Configure VRFs
   hosts: leafs
   gather_facts: false
 
@@ -14,7 +14,7 @@
 
     - name: Configure L3VNI VRF(s) Address-Family
       cisco.nxos.nxos_vrf_af:
-        vrf: "{{ item.vrf_name }}"
+        vrf: CHANGE ME
         afi: ipv4
         route_target_both_auto_evpn: true
         state: present
