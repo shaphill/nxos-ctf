@@ -1,6 +1,6 @@
 ---
-- name: Task X - Enable Features
-  ansible.builtin.import_playbook: task-xx-features.yml
+- name: Task 02 - Enable Features
+  ansible.builtin.import_playbook: task-02-features.yml
 
 - hosts: spines, leafs
   gather_facts: false
@@ -9,5 +9,11 @@
     - role: common
     - role: underlay
 
-- name: Task X - VLAN-to-VNI Mapping
-  ansible.builtin.import_playbook: task-xx-vlans.yml
+- name: Task 03 - VLAN-to-VNI Mapping
+  ansible.builtin.import_playbook: task-03-vlans.yml
+
+- name: Task 04 - Configure VRFs
+  ansible.builtin.import_playbook: task-04-vrfs.yml
+
+- name: Task 05 - Configure VXLAN VTEP NVE Interface
+  ansible.builtin.import_playbook: task-05-nve.yml
