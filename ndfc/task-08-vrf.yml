@@ -3,11 +3,16 @@
   hosts: ndfc1
   gather_facts: false
 
+  vars_files:
+    - vars.yml
+
   tasks:
     - name: Add VRF
       cisco.dcnm.dcnm_vrf:
+        fabric: "{{ fabric }}"
         config:
           - vrf_name: "CHANGE ME"
             vrf_id: "CHANGE ME"
             vlan_id: "CHANGE ME"
             deploy: true
+        state: merged

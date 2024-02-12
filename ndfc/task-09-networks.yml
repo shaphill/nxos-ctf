@@ -3,9 +3,13 @@
   hosts: ndfc1
   gather_facts: false
 
+  vars_files:
+    - vars.yml
+
   tasks:
     - name: Add networks and attach to interfaces
       cisco.dcnm.dcnm_network:
+        fabric: "{{ fabric }}"
         config:
           - net_name: "{{ item.name }}"
             vrf_name: "{{ item.vrf }}"
@@ -16,4 +20,5 @@
               - ip_address: "CHANGE ME"
                 ports: "CHANGE ME"
             deploy: true
+        state: merged
       loop: "{{ networks }}"

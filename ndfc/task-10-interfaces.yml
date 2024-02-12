@@ -3,9 +3,13 @@
   hosts: ndfc1
   gather_facts: false
 
+  vars_files:
+    - vars.yml
+
   tasks:
   - name: Change interface to access mode
     cisco.dcnm.dcnm_interface:
+      fabric: "{{ fabric }}"
       config:
         - name: "{{ interfaces[0].name }}"
           switch:
@@ -22,3 +26,4 @@
             mode: access
             access_vlan: "CHANGE ME"
           type: eth
+      state: merged
