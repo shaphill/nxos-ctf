@@ -4,6 +4,14 @@
 features: 
   - CHANGE ME
 
+vrfs:
+  - vrf_name: &refvrf_ansiblevrf AnsibleVRF
+    vlan_id: 500
+    vni_id: 50000
+  - vrf_name: &refvrf_demovrf DemoVRF
+    vlan_id: 600
+    vni_id: 60000
+
 networks:
   - vrf_name: *refvrf_ansiblevrf
     vlan_name: AnsibleNet1
@@ -19,14 +27,6 @@ networks:
     addr: 192.168.102.1
     mask: 24
     mcast_grp: 239.1.1.2
-
-vrfs:
-  - vrf_name: &refvrf_ansiblevrf AnsibleVRF
-    vlan_id: 500
-    vni_id: 50000
-  - vrf_name: &refvrf_demovrf DemoVRF
-    vlan_id: 600
-    vni_id: 60000
 
 bgp_asn: 65001
 
