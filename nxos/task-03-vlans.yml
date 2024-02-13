@@ -8,8 +8,8 @@
         config: 
           - name: AnsibleVRF
             vlan_id: 500
-            vni_id: 50000
+            mapped_vni: 50000
           - name: DemoVRF
             vlan_id: 600
-            vni_id: 60000
+            mapped_vni: 60000
           # ADD NETWORKS BELOW
