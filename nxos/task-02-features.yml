@@ -1,5 +1,5 @@
 ---
-- name: Enable features
+- name: Task 02 - Enable features
   hosts: leafs, spines
   gather_facts: false
 

@@ -8,10 +8,8 @@
     - role: common
     - role: underlay
 
-- name: Task 03 - VLAN-to-VNI Mapping
-  ansible.builtin.import_playbook: task-03-vlans.yml
+- import_playbook: task-03-vlans.yml
 
 - import_playbook: task-04-vrfs.yml
 
-- name: Task 05 - Configure VXLAN VTEP NVE Interface
-  ansible.builtin.import_playbook: task-05-nve.yml
+- import_playbook: task-05-nve.yml

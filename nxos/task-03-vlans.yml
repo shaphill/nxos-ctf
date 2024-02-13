@@ -1,15 +1,15 @@
 ---
-  - name: Task 03 - Configure VLANs-to-VNIs
-    hosts: leafs
+- name: Task 03 - Configure VLANs-to-VNIs
+  hosts: leafs
 
-    tasks:
-    - name: Configure VLANs-to-VNIs
-      cisco.nxos.nxos_vlans:
-        config: 
-          - name: AnsibleVRF
-            vlan_id: 500
-            mapped_vni: 50000
-          - name: DemoVRF
-            vlan_id: 600
-            mapped_vni: 60000
-          # ADD NETWORKS BELOW
+  tasks:
+  - name: Configure VLANs-to-VNIs
+    cisco.nxos.nxos_vlans:
+      config: 
+        - name: AnsibleVRF
+          vlan_id: 500
+          mapped_vni: 50000
+        - name: DemoVRF
+          vlan_id: 600
+          mapped_vni: 60000
+        # ADD NETWORKS BELOW
