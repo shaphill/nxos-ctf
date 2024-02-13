@@ -3,7 +3,7 @@
   hosts: leafs, spines
   gather_facts: false
 
-- tasks:
+  tasks:
     - name: Enable Features
       cisco.nxos.nxos_feature:
         feature: "{{ item }}"
