@@ -1,4 +1,4 @@
-fabric: ctf
+fabric: NDFC-CTF
 
 vrf:
   name: v1
