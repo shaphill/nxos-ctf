@@ -1,9 +1,6 @@
 ---
-- name: Task 08 - Deploy VRF
-  ansible.builtin.import_playbook: task-08-vrf.yml
+- import_playbook: task-08-vrf.yml
 
-- name: Task 09 - Deploy Networks
-  ansible.builtin.import_playbook: task-09-networks.yml
+- import_playbook: task-09-networks.yml
 
-- name: Task 10 - Change interfaces to Access Ports
-  ansible.builtin.import_playbook: task-10-interfaces.yml
+- import_playbook: task-10-interfaces.yml
