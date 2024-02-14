@@ -6,15 +6,11 @@
   vars_files:
     - vars.yml
 
-  vars:
-    ndfc: &ndfc
-      fabric: "{{ fabric }}"
-      state: merged
-
   tasks:
     - name: Add networks and attach to interfaces
       cisco.dcnm.dcnm_network:
-        <<: *ndfc
+        fabric: "{{ fabric }}"
+        state: merged
         config:
           - net_name: "{{ item.name }}"
             vrf_name: "{{ item.vrf }}"
