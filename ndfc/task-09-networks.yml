@@ -25,4 +25,4 @@
               - ip_address: "CHANGE ME"
                 ports: "CHANGE ME"
             deploy: true
-        loop: "{{ networks }}"
+      loop: "{{ networks }}"
